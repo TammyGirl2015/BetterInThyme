@@ -1,6 +1,6 @@
 from django.urls import path
-from .views import book_table
+from .views import booking_table
 
 urlpatterns = [
-    path('', book_table, name='book_table'),
+    path('', booking_table, name='booking_table'), 
 ]
