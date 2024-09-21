@@ -74,12 +74,25 @@ WSGI_APPLICATION = 'restaurant_booking.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+import os
+import dj_database_url
+
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'default': dj_database_url.config(default=os.getenv('DATABASE_URL')),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'bit',  # Replace this with your database name
+        'USER': 'bit_owner',  # Replace this with your database username
+        'PASSWORD': 'GWLQ3h0gIOcj',  # Replace this with your database password
+        'HOST': 'ep-wispy-resonance-a2dn6ucw.eu-central-1.aws.neon.tech',  # Replace this with your database host
+        'PORT': '5432',  # Default PostgreSQL port
+        'OPTIONS': {
+            'sslmode': 'require',
+        },
     }
 }
+
 
 
 # Password validation
