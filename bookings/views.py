@@ -11,3 +11,4 @@ def book_table(request):
         form = BookingForm()
     
     return render(request, 'bookings/book_table.html', {'form': form})
+

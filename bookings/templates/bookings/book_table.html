@@ -12,12 +12,13 @@
 </head>
 <body>
     <h1>Welcome to the Restaurant Booking System</h1>
-<a href="{% url 'book_table' %}">Book a table</a>
+    <a href="{% url 'book_table' %}">Book a table</a>
     <h2>Book a Table</h2>
-<form method="POST">
-    <button type="submit">Book</button>
-</form>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Book</button>
+    </form>
 </body>
 </html>
-
 
