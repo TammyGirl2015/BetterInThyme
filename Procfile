@@ -1,1 +1,1 @@
-web: gunicorn BetterInThyme.wsgi:application
+web: gunicorn restaurant_booking.wsgi:application
