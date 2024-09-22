@@ -22,12 +22,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-&ov3omnys)-lzmv9l@y-@k9+p=15vw=9*jy+6$!6iau&x&&pp@'
+# SECRET_KEY = 'django-insecure-&ov3omnys)-lzmv9l@y-@k9+p=15vw=9*jy+6$!6iau&x&&pp@'
+SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-&ov3omnys)-lzmv9l@y-@k9+p=15vw=9*jy+6$!6iau&x&&pp@')
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['betterinthyme-2fdd2e78de0c.herokuapp.com']
+# ALLOWED_HOSTS = ['betterinthyme-2fdd2e78de0c.herokuapp.com']
+ALLOWED_HOSTS = [os.environ.get('HEROKU_HOSTNAME')]
 
 
 # Application definition
@@ -76,9 +79,14 @@ WSGI_APPLICATION = 'restaurant_booking.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+# DATABASES = {
+#   'default': dj_database_url.parse('postgresql://bit_owner:GWLQ3h0gIOcj@ep-wispy-resonance-a2dn6ucw.eu-central-1.aws.neon.tech/bit?sslmode=require')
+# }
+
 DATABASES = {
-   'default': dj_database_url.parse('postgresql://bit_owner:GWLQ3h0gIOcj@ep-wispy-resonance-a2dn6ucw.eu-central-1.aws.neon.tech/bit?sslmode=require')
+    'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
 }
+
 
 # DATABASES = {
  #   'default': {
