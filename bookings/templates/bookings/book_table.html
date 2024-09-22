@@ -1,3 +1,7 @@
+    {% load static %}
+    {% csrf_token %}
+    {{ form.as_p }}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,9 +15,6 @@
 <a href="{% url 'book_table' %}">Book a table</a>
     <h2>Book a Table</h2>
 <form method="POST">
-    {% load static %}
-    {% csrf_token %}
-    {{ form.as_p }}
 
     <button type="submit">Book</button>
 </form>
