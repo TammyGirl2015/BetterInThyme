@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import dj_database_url
-
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -76,9 +76,6 @@ WSGI_APPLICATION = 'restaurant_booking.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-import os
-import dj_database_url
-
 DATABASES = {
    'default': dj_database_url.parse('postgresql://bit_owner:GWLQ3h0gIOcj@ep-wispy-resonance-a2dn6ucw.eu-central-1.aws.neon.tech/bit?sslmode=require')
 }
@@ -137,6 +134,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
