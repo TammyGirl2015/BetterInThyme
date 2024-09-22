@@ -1,1 +1,1 @@
-web: gunicorn betterinthyme.wsgi:application
+web: gunicorn BetterInThyme.wsgi:application
